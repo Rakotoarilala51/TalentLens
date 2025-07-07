@@ -1,6 +1,10 @@
 import { IconType } from "react-icons"
 export type cardProps = {
     icon:IconType;
-    title:String;
-    description:String;
+    title:string;
+    description:string;
+}
+export type route ={
+    href:string,
+    label:string
 }
