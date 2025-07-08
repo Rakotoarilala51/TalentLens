@@ -7,29 +7,29 @@ frontend/build/         # Create React App build
 frontend/.cache/
 frontend/.DS_Store
 
-# 📂 Python (FastAPI backend)
-backend/__pycache__/
-backend/*.pyc
-backend/.DS_Store
-backend/.env
-backend/.venv/
-backend/env/
-backend/venv/
-backend/.mypy_cache/
-backend/.pytest_cache/
-backend/.pdm.toml
-backend/poetry.lock
-backend/.idea/
-backend/.vscode/
-backend/.coverage
-backend/coverage.xml
-backend/htmlcov/
+# 📂 Python (FastAPI app)
+app/__pycache__/
+app/*.pyc
+app/.DS_Store
+app/.env
+app/.venv/
+app/env/
+app/venv/
+app/.mypy_cache/
+app/.pytest_cache/
+app/.pdm.toml
+app/poetry.lock
+app/.idea/
+app/.vscode/
+app/.coverage
+app/coverage.xml
+app/htmlcov/
 
 # Hugging Face models (préférable de ne PAS les committer)
-backend/models/
-backend/huggingface/
-backend/cache/
-backend/.cache/huggingface/
+app/models/
+app/huggingface/
+app/cache/
+app/.cache/huggingface/
 
 # PyTorch/Transformers caches
 ~/.cache/torch/
