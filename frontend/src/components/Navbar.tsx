@@ -6,6 +6,7 @@ const links:route[]=[
     {href:"/cvsummary", label:"CV Summary"},
     {href:"/ai-cv-matching", label:"AI CV Matching"},
     {href:"/interview-prep", label:"Interview preparation"},
+    {href:"/job-searching", label:"Offer Searching"},
 ]
 export default function Navbar(){
 
