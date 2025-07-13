@@ -19,7 +19,7 @@ export default function Navbar(){
             <div className="flex justify-between space-x-5">
                 {
                     links.map((link, idx)=>(
-                         <Link key={idx} href={link.href}>{link.label}</Link>
+                         <Link key={idx} href={link.href} className="font-bold">{link.label}</Link>
                     ))
                 }
                

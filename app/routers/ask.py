@@ -2,6 +2,7 @@ from fastapi import APIRouter, UploadFile, File
 from services.Extraction_Service.ExtractionService import ExctractionService
 from services.Extraction_Service.pdfExtractor import pdfExtractor
 from services.File_Service.file_service import FileService
+from services.Summary_Service.summary import Summary
 
 router = APIRouter(prefix="/ask")
 UPLOAD_DIR = "uploads"
@@ -15,4 +16,7 @@ async def get_summary(file: UploadFile = File(...)):
     strategy = ExctractionService(pdfExtractor())
     text = strategy.extract(filepath)
     files.remove_file(filepath)
-    return {"filename": text}
+    summary = Summary()
+    cv = " ".join(text)
+    result = summary.general(cv)
+    return {"generalSummary": result}
