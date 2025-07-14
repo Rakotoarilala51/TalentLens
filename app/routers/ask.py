@@ -18,5 +18,14 @@ async def get_summary(file: UploadFile = File(...)):
     files.remove_file(filepath)
     summary = Summary()
     cv = " ".join(text)
-    result = summary.general(cv)
-    return {"generalSummary": result}
+    general_summary = summary.general(cv)
+    linkedin_bio = summary.linkedin(cv)
+    key_skills = summary.get_key_skill(cv)
+    soft_skills = summary.get_soft_skill(cv)
+    suggestions = summary.get_suggestions(cv)
+    return {"generalSummary": general_summary,
+            "linkedinBio": linkedin_bio,
+            "Key_skills": key_skills,
+            "soft_skills": soft_skills,
+            "suggestions": suggestions
+            }
