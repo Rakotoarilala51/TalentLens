@@ -1,13 +1,31 @@
 "use client";
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { FaTrash } from "react-icons/fa";
 import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
 import "@cyntler/react-doc-viewer/dist/index.css";
+import { summary } from "@/types";
+type childProps = {
+  setIsLoading : React.Dispatch<React.SetStateAction<boolean>>;
+  setData : React.Dispatch<React.SetStateAction<summary>>;
+}
 
-export default function CvUpload() {
+export default function CvUpload({setIsLoading, setData}:childProps) {
   const [selectedDocs, setSelectedDocs] = useState<File | null>(null);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL
+  async function onSubmit(event:FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    formData.append("file", selectedDocs);
+    const response = await fetch(`http://localhost:8000/ask/summarize-cv`, {
+      method:'POST',
+      body: formData
+    })
+    const data = await response.json()
+    console.log(data)
+    setData(data)
 
+  }
   return (
     <div className="flex flex-col bg-white p-2 rounded-lg font-bold">
       <span className="ml-2">Upload your CV Here</span>
@@ -18,7 +36,7 @@ export default function CvUpload() {
             documents={[
               {
                 uri: window.URL.createObjectURL(selectedDocs),
-                filename: "your cv",
+                fileName: "your cv",
               },
             ]}
             style={{ height: "50%", width: "100%" }}
@@ -38,12 +56,7 @@ export default function CvUpload() {
 
       <form
         action="#"
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (selectedDocs) {
-            console.log("Generate clicked for:", selectedDocs.name);
-          }
-        }}
+        onSubmit={onSubmit}
       >
         {!selectedDocs ? (
           <div className="m-2 border border-pink-500 p-1 rounded-lg flex flex-col items-center justify-center">
@@ -54,6 +67,7 @@ export default function CvUpload() {
             <input
               type="file"
               className="hidden"
+              name="file"
               id="cv-upload"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 const file = e.target.files?.[0];

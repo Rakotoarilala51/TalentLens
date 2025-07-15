@@ -26,7 +26,7 @@ class Summary:
             👉 Your job is to extract all **soft skills** (behavioral and interpersonal qualities) that the candidate demonstrates.             
             ✅ List each soft skill only once.  
             ✅ If the CV clearly demonstrates this soft skill (through certifications, achievements, or strong wording), add "(strong evidence)" next to it.             
-             Return the result as a **simple sentence** all skill separated by comma.do NOT add explanations        
+             Return the result as a **simple sentence** and as short as possible all skill separated by comma.do NOT add explanations        
             Here is the CV content:
             ---
             {cv_text}

@@ -8,3 +8,10 @@ export type route ={
     href:string,
     label:string
 }
+export type summary ={
+    generalSummary:string,
+    linkedInBio:string,
+    keySkills:string[],
+    softSkills:string[],
+    suggsetions:string
+}
