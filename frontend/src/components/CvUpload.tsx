@@ -14,6 +14,7 @@ export default function CvUpload({setIsLoading, setData}:childProps) {
   const [selectedDocs, setSelectedDocs] = useState<File | null>(null);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL
   async function onSubmit(event:FormEvent<HTMLFormElement>) {
+    setIsLoading(true)
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
     formData.append("file", selectedDocs);
@@ -24,6 +25,7 @@ export default function CvUpload({setIsLoading, setData}:childProps) {
     const data = await response.json()
     console.log(data)
     setData(data)
+    setIsLoading(false)
 
   }
   return (

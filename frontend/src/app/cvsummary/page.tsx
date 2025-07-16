@@ -18,7 +18,7 @@ export default function cvsummary() {
       <div className="flex justify-between">
         {/*cv */}
         <CvUpload setData={SetData} setIsLoading={setIsLoading}/>
-        <SummaryList summary={data}/>
+        <SummaryList isLoading={isLoading} resume={data}/>
       </div>
     </div>
   );
