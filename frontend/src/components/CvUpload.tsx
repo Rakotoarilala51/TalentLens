@@ -38,7 +38,7 @@ export default function CvUpload({setIsLoading, setData}:childProps) {
             documents={[
               {
                 uri: window.URL.createObjectURL(selectedDocs),
-                fileName: "your cv",
+                fileName: "",
               },
             ]}
             style={{ height: "50%", width: "100%" }}

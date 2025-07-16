@@ -20,7 +20,7 @@ export default function SummaryList({ resume, isLoading }: Props) {
       </div>
 
 
-      <div className="bg-stone-200 h-110 mt-4 rounded-lg p-2 m-2 space-y-1 overflow-hidden">
+      <div className="bg-stone-200 h-110 mt-4 rounded-lg p-2 m-2 space-y-1 overflow-y-auto">
         <GeneralSummary
           generalSum={resume.generalSummary}
           isLoading={isLoading}
@@ -39,7 +39,7 @@ export default function SummaryList({ resume, isLoading }: Props) {
             isLoading={isLoading}
           />
           <SuggestionCard
-            suggestions={resume.suggsetions}
+            suggestions={resume.suggestions}
             isLoading={isLoading}
           />
         </div>

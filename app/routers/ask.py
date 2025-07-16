@@ -24,8 +24,8 @@ async def get_summary(file: UploadFile = File(...)):
     soft_skills = summary.get_soft_skill(cv)
     suggestions = summary.get_suggestions(cv)
     return {"generalSummary": general_summary,
-            "linkedinBio": linkedin_bio,
-            "KeySkills": key_skills,
+            "linkedInBio": linkedin_bio,
+            "keySkills": key_skills,
             "softSkills": soft_skills,
             "suggestions": suggestions
             }

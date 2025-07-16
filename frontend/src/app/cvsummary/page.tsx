@@ -10,7 +10,7 @@ export default function cvsummary() {
     linkedInBio: "",
     keySkills: [],
     softSkills: [],
-    suggsetions: "",
+    suggestions: "",
   });
   return (
     <div className="mt-5">

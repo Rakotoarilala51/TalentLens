@@ -13,5 +13,5 @@ export type summary ={
     linkedInBio:string,
     keySkills:string[],
     softSkills:string[],
-    suggsetions:string
+    suggestions:string
 }
