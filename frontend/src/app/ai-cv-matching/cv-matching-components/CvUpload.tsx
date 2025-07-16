@@ -104,6 +104,7 @@ export default function CvUpload({ setIsLoading, setData }: childProps) {
         <Textarea
           name=""
           id=""
+          value={offer}
           className="bg-stone-200 outline-0 h-full resize-none m-1 p-2 rounded-lg"
           onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
             setOffer(e.target.value)

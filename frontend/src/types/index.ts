@@ -15,3 +15,10 @@ export type summary ={
     softSkills:string[],
     suggestions:string
 }
+export type job = {
+    title: string,
+    city:string,
+    country: string,
+    salary: string,
+    tags:string[]
+}
