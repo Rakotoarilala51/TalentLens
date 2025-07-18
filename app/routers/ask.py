@@ -1,8 +1,13 @@
-from fastapi import APIRouter, UploadFile, File
+import json
+
+from fastapi import APIRouter, UploadFile, File, Form
 from services.Extraction_Service.ExtractionService import ExctractionService
 from services.Extraction_Service.pdfExtractor import pdfExtractor
 from services.File_Service.file_service import FileService
 from services.Summary_Service.summary import Summary
+from services.Offer_Service.Offer import Offer
+from pydantic import BaseModel
+
 
 router = APIRouter(prefix="/ask")
 UPLOAD_DIR = "uploads"
@@ -29,3 +34,13 @@ async def get_summary(file: UploadFile = File(...)):
             "softSkills": soft_skills,
             "suggestions": suggestions
             }
+@router.post("/cv-matching")   
+async def cv_matching(file: UploadFile = File(...), offer:str = Form()):
+    description:str = json.loads(offer)
+    offre = Offer(description)
+    result = offre.get_job_info()
+    print(result)
+    return {
+        "desc":description
+    }
+    

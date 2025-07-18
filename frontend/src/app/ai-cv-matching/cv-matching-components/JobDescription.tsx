@@ -13,8 +13,12 @@ export default function JobDescription({ job }: Props) {
         <p className="inline">Fianarantsoa,</p>
         <p className="inline">Madagascar</p>
       </span>
-      <div>
-        <span>1400</span>
+      <div className="">
+        <span className="font-bold">1400</span><span className="text-xs text-gray-400">$/month</span>
+      </div>
+      <div className="flex items-center gap-1">
+        <span className="border border-gray-400 text-xs flexitems-center justify-center text-gray-400 rounded-sm p-0.5">Fulltime</span>
+        <span className="border border-gray-400 text-xs flexitems-center justify-center text-gray-400 rounded-sm p-0.5">technology</span>
       </div>
     </div>
   );
